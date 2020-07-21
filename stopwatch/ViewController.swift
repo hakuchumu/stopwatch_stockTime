@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     weak var timer: Timer!
     var startTime = Date()
+    var stockTimes:[TimeInterval] = []
        
     override func viewDidLoad() {
        super.viewDidLoad()
@@ -26,6 +27,11 @@ class ViewController: UIViewController {
         timerSecond.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         timerMsec.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
    }
+    
+   override func viewWillDisappear(_ animated: Bool) {
+       super.viewWillDisappear(true)
+       timer.invalidate()
+    }
 
     @IBAction func startTimer(_ sender: Any) {
         // timerが起動中なら一旦破棄する
@@ -44,8 +50,10 @@ class ViewController: UIViewController {
     }
        
     @IBAction func stopTimer(_ sender: Any) {
-        
+        //Stopしたら配列に止めた時間（TimeIntrerval）を追加してリセットする
         if timer != nil{
+            stockTimes.append(Date().timeIntervalSince(startTime))
+            print(stockTimes.last!)
             timer.invalidate()
 
             timerMinute.text = "00"
@@ -75,10 +83,7 @@ class ViewController: UIViewController {
         
     }
        
-       override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(true)
-           timer.invalidate()
-    }
+
 
 
 }
