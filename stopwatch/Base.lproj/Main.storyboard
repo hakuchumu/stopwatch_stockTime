@@ -80,6 +80,24 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yLl-Ki-RND">
+                                <rect key="frame" x="0.0" y="496" width="414" height="366"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="J98-Ec-77k">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J98-Ec-77k" id="tBJ-fa-w8x">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ysv-yb-qpo"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gig-Nr-4yp"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.34467655327853008" green="0.63761104060913709" blue="0.61765742770440957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -88,13 +106,18 @@
                             <constraint firstItem="onJ-Rz-ucu" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.25" id="Cju-1n-tQT"/>
                             <constraint firstItem="onJ-Rz-ucu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DoV-pw-Nj8"/>
                             <constraint firstItem="8dZ-vP-nLz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bra-X0-88b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yLl-Ki-RND" secondAttribute="bottom" id="erJ-0W-8JD"/>
                             <constraint firstItem="dxC-fF-QCl" firstAttribute="top" secondItem="8dZ-vP-nLz" secondAttribute="bottom" constant="50" id="fui-gy-h2c"/>
                             <constraint firstItem="8dZ-vP-nLz" firstAttribute="top" secondItem="onJ-Rz-ucu" secondAttribute="bottom" constant="20" id="jTZ-8v-Ldc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yLl-Ki-RND" secondAttribute="trailing" id="k11-rz-iWa"/>
                             <constraint firstItem="onJ-Rz-ucu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n4w-iM-lly"/>
+                            <constraint firstItem="yLl-Ki-RND" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rdW-Lw-pJG"/>
+                            <constraint firstItem="yLl-Ki-RND" firstAttribute="top" secondItem="dxC-fF-QCl" secondAttribute="bottom" constant="30" id="xRD-wS-9qq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="stockTimesTable" destination="yLl-Ki-RND" id="F4o-cf-dLX"/>
                         <outlet property="timerMinute" destination="U3w-HH-N0n" id="SF1-f0-i44"/>
                         <outlet property="timerMsec" destination="0It-zA-frF" id="qKb-hl-R6b"/>
                         <outlet property="timerSecond" destination="HjD-Oi-0P5" id="dxs-iq-ZqI"/>

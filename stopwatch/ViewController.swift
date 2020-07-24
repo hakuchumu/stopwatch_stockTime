@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var timerSecond: UILabel!
     @IBOutlet weak var timerMsec: UILabel!
     
+    @IBOutlet weak var stockTimesTable: UITableView!
+    
     weak var timer: Timer!
     var startTime = Date()
     var stockTimes:[TimeInterval] = []
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
         if timer != nil{
             stockTimes.append(Date().timeIntervalSince(startTime))
             print(stockTimes.last!)
+            stockTimesTable?.reloadData()
             timer.invalidate()
             
             timerMinute.text = "00"
@@ -83,7 +86,38 @@ class ViewController: UIViewController {
         
     }
     
+}
+
+extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return stockTimes.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let currentTime = stockTimes[indexPath.row]
+        
+        // fmod() 余りを計算
+        let minute = (Int)(fmod((currentTime/60), 60))
+        // currentTime/60 の余り
+        let second = (Int)(fmod(currentTime, 60))
+        // floor 切り捨て、小数点以下を取り出して *100
+        let msec = (Int)((currentTime - floor(currentTime))*100)
+        
+        // %02d： ２桁表示、0で埋める
+        let sMinute = String(format:"%02d", minute)
+        let sSecond = String(format:"%02d", second)
+        let sMsec = String(format:"%02d", msec)
+        
+        cell.textLabel!.text = "\(sMinute) \(sSecond) \(sMsec)"
+        cell.textLabel?.textAlignment = .center
+        
+        return cell
+        
+    }
     
     
 }
