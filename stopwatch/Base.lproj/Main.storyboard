@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kh5-5h-FAW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--タイマー-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="stopwatch_stockTime" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" red="0.34467655330000002" green="0.63761104059999996" blue="0.61765742769999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="8dZ-vP-nLz">
-                                <rect key="frame" x="57" y="288" width="300" height="80"/>
+                                <rect key="frame" x="112" y="288" width="190" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U3w-HH-N0n">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
@@ -38,16 +38,6 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="1QH-f8-iVp"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="z2c-tL-Xhf"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0It-zA-frF">
-                                        <rect key="frame" x="220" y="0.0" width="80" height="80"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="80" id="TDY-TO-SgA"/>
-                                            <constraint firstAttribute="height" constant="80" id="ooY-oF-pgm"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
                                         <nil key="textColor"/>
@@ -81,7 +71,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yLl-Ki-RND">
-                                <rect key="frame" x="0.0" y="496" width="414" height="366"/>
+                                <rect key="frame" x="0.0" y="496" width="414" height="317"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="J98-Ec-77k">
@@ -116,16 +106,65 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="タイマー" id="YNH-Ie-Y4X" userLabel="タイマー"/>
                     <connections>
                         <outlet property="stockTimesTable" destination="yLl-Ki-RND" id="F4o-cf-dLX"/>
                         <outlet property="timerMinute" destination="U3w-HH-N0n" id="SF1-f0-i44"/>
-                        <outlet property="timerMsec" destination="0It-zA-frF" id="qKb-hl-R6b"/>
                         <outlet property="timerSecond" destination="HjD-Oi-0P5" id="dxs-iq-ZqI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="114"/>
+            <point key="canvasLocation" x="1047.8260869565217" y="113.83928571428571"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6sa-VI-5b4">
+            <objects>
+                <viewController id="ktS-30-krc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Aed-q1-ibR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="PqE-ez-g5q"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wb0-99-mOJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1048" y="852"/>
+        </scene>
+        <!--Register Timer View-->
+        <scene sceneID="UHr-BE-akX">
+            <objects>
+                <viewController id="XUI-4C-UVM" userLabel="Register Timer View" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dWN-Qg-To8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="YDA-sj-qMM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="登録済みのタイマー" id="ffn-Xq-nHP" userLabel="登録済みのタイマー"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vQo-U3-JuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876.8115942028987" y="113.83928571428571"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Cju-Zc-vTP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="kh5-5h-FAW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VYh-Y6-mk2">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ASG-yH-pxZ"/>
+                        <segue destination="XUI-4C-UVM" kind="relationship" relationship="viewControllers" id="KAD-Mq-ug9"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CF9-3B-3g1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
         </scene>
     </scenes>
 </document>

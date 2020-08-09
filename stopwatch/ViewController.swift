@@ -12,7 +12,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var timerMinute: UILabel!
     @IBOutlet weak var timerSecond: UILabel!
-    @IBOutlet weak var timerMsec: UILabel!
     
     @IBOutlet weak var stockTimesTable: UITableView!
     
@@ -26,14 +25,15 @@ class ViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 0.2128436267, green: 0.646464169, blue: 0.6198984981, alpha: 1)
         timerMinute.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         timerSecond.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        timerMsec.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-        timer.invalidate()
+        timer?.invalidate()
     }
+    
+    
     
     @IBAction func startTimer(_ sender: Any) {
         // timerが起動中なら一旦破棄する
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         }
         
         timer = Timer.scheduledTimer(
-            timeInterval: 0.01,
+            timeInterval: 1,
             target: self,
             selector: #selector(self.timerCounter),
             userInfo: nil,
@@ -61,7 +61,6 @@ class ViewController: UIViewController {
             
             timerMinute.text = "00"
             timerSecond.text = "00"
-            timerMsec.text = "00"
         }
     }
     
@@ -72,21 +71,19 @@ class ViewController: UIViewController {
         let minute = (Int)(fmod((currentTime/60), 60))
         // currentTime/60 の余り
         let second = (Int)(fmod(currentTime, 60))
-        // floor 切り捨て、小数点以下を取り出して *100
-        let msec = (Int)((currentTime - floor(currentTime))*100)
         
         // %02d： ２桁表示、0で埋める
         let sMinute = String(format:"%02d", minute)
         let sSecond = String(format:"%02d", second)
-        let sMsec = String(format:"%02d", msec)
         
         timerMinute.text = sMinute
         timerSecond.text = sSecond
-        timerMsec.text = sMsec
         
     }
     
 }
+
+
 
 extension ViewController : UITableViewDelegate, UITableViewDataSource {
     
@@ -104,21 +101,18 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         let minute = (Int)(fmod((currentTime/60), 60))
         // currentTime/60 の余り
         let second = (Int)(fmod(currentTime, 60))
-        // floor 切り捨て、小数点以下を取り出して *100
-        let msec = (Int)((currentTime - floor(currentTime))*100)
         
         // %02d： ２桁表示、0で埋める
         let sMinute = String(format:"%02d", minute)
         let sSecond = String(format:"%02d", second)
-        let sMsec = String(format:"%02d", msec)
         
-        cell.textLabel!.text = "\(sMinute) \(sSecond) \(sMsec)"
+        cell.textLabel!.text = "\(sMinute) \(sSecond)"
         cell.textLabel?.textAlignment = .center
         
         return cell
         
     }
     
-    
 }
+
 
