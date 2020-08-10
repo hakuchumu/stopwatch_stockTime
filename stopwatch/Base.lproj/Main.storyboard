@@ -111,18 +111,19 @@
                         <outlet property="stockTimesTable" destination="yLl-Ki-RND" id="F4o-cf-dLX"/>
                         <outlet property="timerMinute" destination="U3w-HH-N0n" id="SF1-f0-i44"/>
                         <outlet property="timerSecond" destination="HjD-Oi-0P5" id="dxs-iq-ZqI"/>
+                        <segue destination="ktS-30-krc" kind="presentation" identifier="toRegistrationWindow" id="VLU-y3-BB6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="113.83928571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--registrationWindow-->
         <scene sceneID="6sa-VI-5b4">
             <objects>
-                <viewController id="ktS-30-krc" sceneMemberID="viewController">
+                <viewController title="registrationWindow" id="ktS-30-krc" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aed-q1-ibR">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="PqE-ez-g5q"/>
@@ -132,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="1048" y="852"/>
         </scene>
-        <!--Register Timer View-->
+        <!--registered times-->
         <scene sceneID="UHr-BE-akX">
             <objects>
-                <viewController id="XUI-4C-UVM" userLabel="Register Timer View" sceneMemberID="viewController">
+                <viewController title="registered times" id="XUI-4C-UVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dWN-Qg-To8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

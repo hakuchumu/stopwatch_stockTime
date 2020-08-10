@@ -113,6 +113,14 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // セルの選択を解除 Appleの審査のために入れてる
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        // 別の画面に遷移
+        performSegue(withIdentifier: "toRegistrationWindow", sender: nil)
+    }
+    
 }
 
 
